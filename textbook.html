@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ko">
+<head><script src="/campus-theme.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>교재 · 산업공학의 이해 빈칸노트</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:#e9eef1;color:#273c4b;font:15px/1.5 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif}
+    header{position:sticky;top:0;z-index:1;padding:12px 18px;background:#fff;border-bottom:1px solid #cbd9e2;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+    h1{font-size:16px;margin:0}.title-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}header p{font-size:12px;color:#526a7a;margin:3px 0 0}nav,form,.zoom-controls{display:flex;align-items:center;gap:6px;flex-wrap:wrap}button,input,select,.button-link{font:inherit;border:1px solid #a6bdcd;border-radius:6px;min-height:38px;padding:6px 10px;background:white;color:inherit}button,.button-link{cursor:pointer}.button-link{text-decoration:none;display:inline-flex;align-items:center}button:disabled{opacity:.45;cursor:default}input[type=number]{width:78px}input[type=range]{width:140px;min-height:30px;padding:0;accent-color:#246e9b}a{color:#0f0f70}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #5ba1cc;outline-offset:2px}
+    #status{text-align:center;margin:14px 18px;min-height:23px}main{max-width:1150px;padding:0 16px 24px;margin:auto;overflow:auto;min-height:220px}#page-image{display:block;margin:0 auto;background:#fff;box-shadow:0 3px 18px #273c4b24;max-width:none;height:auto}#retry{display:block;margin:0 auto 14px}[hidden]{display:none!important}footer{padding:10px 18px 24px;text-align:center;color:#526a7a;font-size:13px}footer a{margin:0 8px}
+    @media(max-width:600px){header{padding:10px}h1{font-size:14px}main{padding:0 6px 18px}button,input,select,.button-link{padding:5px 7px}nav{gap:4px}input[type=range]{width:110px}}
+  </style>
+<link rel="stylesheet" href="/site-info.css"><script defer src="/site-info.js"></script><link rel="stylesheet" href="/campus.css"><link rel="stylesheet" href="/campus-effects.css"><script defer src="/campus-effects.js"></script><script defer src="/campus-navigation.js"></script><link rel="stylesheet" href="/campus-theme.css"><script defer src="/campus-curves.js"></script><meta name="theme-color" content="#19398a"></head>
+<body class="campus-textbook">
+  <header>
+    <div><div class="title-row"><a class="campus-logo-link" href="/" aria-label="메인 화면으로 이동"><span class="campus-logo-art"><img class="campus-brand-logo" src="/assets/snu-ie-logo.jpg" width="210" height="70" alt="서울대학교 산업공학과"><img class="campus-brand-logo campus-logo-dark" src="/assets/snu-ie-logo-dark.png" width="210" height="70" alt="" aria-hidden="true"></span></a><h1>산업경영공학 시스템 접근</h1><a class="button-link" href="/">메인 화면</a></div><p id="chapter-label">교재를 준비하고 있습니다.</p></div>
+    <nav aria-label="교재 페이지 이동">
+      <label for="chapter">장</label><select id="chapter" aria-label="교재 장 선택"><option value="1-4">1~4장 통합</option><option value="7">7장 · 경제성 분석</option><option value="8-9">8~9장 통합</option><option value="10">10장 · 인적자원관리</option></select>
+      <button id="previous" type="button">이전 쪽</button>
+      <form id="page-form"><label for="page-number">교재</label><input id="page-number" type="number" inputmode="numeric" required aria-label="교재 쪽수"><span>쪽</span><button type="submit" id="go">이동</button></form>
+      <button id="next" type="button">다음 쪽</button>
+      <div class="zoom-controls"><label for="zoom">배율</label><input id="zoom" type="range" min="1" max="200" step="1" value="100" aria-label="교재 배율"><input id="zoom-number" type="number" min="1" max="200" step="1" value="100" inputmode="numeric" aria-label="배율 퍼센트"><span>%</span><button id="fit" type="button">폭 맞춤</button></div>
+    </nav>
+  <button type="button" class="theme-toggle" role="switch" aria-checked="false" aria-label="다크 모드" data-theme-toggle title="다크 모드로 전환"><span class="theme-label" aria-hidden="true">다크 모드</span><span class="theme-track" aria-hidden="true"><span class="theme-knob"></span></span></button></header>
+  <p id="status" role="status" aria-live="polite">교재를 불러오는 중입니다…</p>
+  <button id="retry" type="button" hidden>다시 시도</button>
+  <main id="paper" aria-busy="true" aria-label="교재 페이지"></main>
+  <footer><span>원본 PDF의 해당 쪽을 화면용 이미지로 표시합니다. 쪽수는 교재에 인쇄된 번호입니다.</span><br><a id="pdf-link" target="_blank" rel="noopener">원본 화질 PDF로 열기</a><a id="notes-link" href="/">빈칸노트로 돌아가기</a><div class="policy-footer"><nav aria-label="사이트 안내" data-policy-links><a href="/privacy.html" class="privacy-link">개인정보처리방침</a><a href="/terms.html">이용안내·약관</a><a href="/about.html">자료 출처·운영자</a><a href="/help.html">학습기록 관리·도움말</a></nav><p class="operator">운영 · 산업공학과 26학번 김예준 · <a href="mailto:sprakids@snu.ac.kr">sprakids@snu.ac.kr</a></p><p>개인 학습용 서비스 · 교재와 원자료의 권리는 각 권리자에게 있습니다.</p></div></footer>
+  <script type="module">
+    const $=id=>document.getElementById(id);
+    const params=new URLSearchParams(location.search),chapter=['1-4','8-9'].includes(params.get('chapter'))?params.get('chapter'):params.get('chapter')==='10'?10:7;
+    const [first,last]=chapter==='1-4'?[23,127]:chapter==='8-9'?[249,295]:chapter===10?[303,353]:[195,241];
+    const pages=chapter==='1-4'?[[23,43],[47,58],[65,88],[93,127]].flatMap(([a,b])=>Array.from({length:b-a+1},(_,i)=>a+i)):chapter==='8-9'?[[249,262],[267,295]].flatMap(([a,b])=>Array.from({length:b-a+1},(_,i)=>a+i)):Array.from({length:last-first+1},(_,i)=>first+i);
+    const file='/assets/textbook-chapter-'+chapter+'.pdf';
+    let pageNumber=Math.min(last,Math.max(first,Math.trunc(Number(params.get('page'))||first)));
+    if(!pages.includes(pageNumber))pageNumber=pages.find(p=>p>=pageNumber)||last;
+    let zoom=Math.min(200,Math.max(1,Math.round(Number(params.get('zoom'))||100)));
+    let ticket=0,pendingImage=null,displayedPage=null;
+    $('chapter-label').textContent=chapter==='1-4'?'1~4장 통합 · 교재 23–43 / 47–58 / 65–88 / 93–127쪽':chapter==='8-9'?'8~9장 통합 · 교재 249–262 / 267–295쪽':chapter+'장 · 교재 '+first+'–'+last+'쪽';
+    $('chapter').value=String(chapter);$('page-number').min=first;$('page-number').max=last;
+    $('notes-link').href='/#'+chapter;
+    function updateURL(){
+      const url=new URL(location.href);url.searchParams.set('chapter',chapter);url.searchParams.set('page',pageNumber);
+      if(zoom===100)url.searchParams.delete('zoom');else url.searchParams.set('zoom',zoom);
+      history.replaceState(null,'',url);
+    }
+    function updateControls(){
+      $('page-number').setCustomValidity('');$('page-number').value=pageNumber;
+      $('previous').disabled=pageNumber===first;$('next').disabled=pageNumber===last;
+      $('pdf-link').href=file+'#page='+(pages.indexOf(pageNumber)+1);
+      document.title='교재 '+pageNumber+'쪽 · 산업공학의 이해 빈칸노트';updateURL();
+    }
+    function setZoom(value){
+      const parsed=Number(value);
+      zoom=value!==''&&Number.isFinite(parsed)?Math.min(200,Math.max(1,Math.round(parsed))):100;
+      $('zoom').value=zoom;$('zoom-number').value=zoom;
+      const image=$('page-image');if(image)image.style.width=zoom+'%';
+      updateURL();
+    }
+    async function loadPage(){
+      const current=++ticket,requested=pageNumber;
+      // Keep the displayed page until its replacement is fully decoded. Width
+      // changes and tablet toolbar resizing never clear or reload this image.
+      if(pendingImage)pendingImage.removeAttribute('src');
+      const image=new Image();pendingImage=image;
+      image.id='page-image';image.alt='산업경영공학 시스템 접근 · 교재 '+requested+'쪽';
+      image.decoding='async';image.fetchPriority='high';
+      $('status').textContent='교재 '+requested+'쪽을 여는 중입니다…';
+      $('retry').hidden=true;$('paper').setAttribute('aria-busy','true');
+      image.src='/assets/pages/'+chapter+'-'+requested+'.webp';
+      try{
+        await image.decode();
+        if(current!==ticket)return;
+        image.style.width=zoom+'%';image.dataset.page=String(requested);
+        $('paper').replaceChildren(image);
+        pendingImage=null;displayedPage=requested;
+        $('paper').setAttribute('aria-busy','false');
+        $('status').textContent='교재 '+requested+'쪽 · '+(({'1-4':'1~4장 통합','8-9':'8~9장 통합'})[chapter]||chapter+'장');
+      }catch(error){
+        if(current!==ticket)return;
+        pendingImage=null;$('paper').setAttribute('aria-busy','false');$('retry').hidden=false;
+        $('status').textContent='교재 '+requested+'쪽을 불러오지 못했습니다.'+(displayedPage?' 현재 '+displayedPage+'쪽을 유지하고 있습니다.':'')+' 다시 시도하거나 아래 PDF 링크를 이용해 주세요.';
+        console.error(error);
+      }
+    }
+    function go(number){
+      if(!Number.isInteger(number)||!pages.includes(number))return;
+      if(number===displayedPage&&number===pageNumber)return;
+      pageNumber=number;updateControls();$('paper').scrollLeft=0;loadPage();
+    }
+    $('previous').onclick=()=>go(pages[pages.indexOf(pageNumber)-1]);$('next').onclick=()=>go(pages[pages.indexOf(pageNumber)+1]);
+    $('page-number').oninput=()=>{const valid=pages.includes(Number($('page-number').value));$('page-number').setCustomValidity(valid?'':chapter==='1-4'?'학습 범위: 23–43, 47–58, 65–88, 93–127쪽 중에서 입력해 주세요.':chapter==='8-9'?'학습 범위: 249–262, 267–295쪽 중에서 입력해 주세요.':'이 장의 교재 범위 안에서 입력해 주세요.');};
+    $('page-form').onsubmit=event=>{event.preventDefault();go(Number($('page-number').value));};
+    $('zoom').oninput=()=>setZoom($('zoom').value);
+    $('zoom-number').oninput=()=>{if($('zoom-number').validity.valid&&$('zoom-number').value!=='')setZoom($('zoom-number').value);};
+    $('zoom-number').onchange=()=>setZoom($('zoom-number').value);
+    $('fit').onclick=()=>setZoom(100);$('retry').onclick=loadPage;
+    $('chapter').onchange=()=>{const next=$('chapter').value;location.href='/textbook.html?chapter='+next+'&page='+(next==='1-4'?23:next==='8-9'?249:next==='10'?303:195)+'&zoom='+zoom;};
+    updateControls();setZoom(zoom);loadPage();
+  </script>
+</body>
+</html>

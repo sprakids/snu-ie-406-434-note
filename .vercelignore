@@ -1,0 +1,7 @@
+.vercel
+.git
+node_modules
+published-preview.png
+vendor
+authoring
+tests

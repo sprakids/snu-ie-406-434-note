@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ko">
+<head><script src="/campus-theme.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#19398a">
+  <title>산업공학의 이해 빈칸노트</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;height:100vh;height:100dvh;display:flex;flex-direction:column;overflow:hidden;background:#f4f6f5;color:#273c4b;font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif}
+    .chapter-bar{flex:none;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px 24px;padding:12px 24px;background:#fff;border-bottom:1px solid #d8e3eb}h1{margin:0;font-size:15px;line-height:1.5}.header-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.tabs{display:flex;gap:4px;padding:4px;border:1px solid #d8e3eb;border-radius:12px;background:#f4f6f5}.tabs button{min-height:40px;padding:9px 14px;border:1px solid transparent;border-radius:8px;background:transparent;color:#4b606e;font:inherit;font-size:14px;cursor:pointer;white-space:nowrap}.tabs button[aria-selected=true]{border-color:#246e9b;background:#246e9b;color:#fff;font-weight:700}.tabs button:hover{border-color:#246e9b}button:focus-visible,a:focus-visible{outline:3px solid #67a9d1;outline-offset:3px}.book-button{border:1px solid #b8cedb;border-radius:8px;padding:10px 14px;color:#0f0f70;background:#fff;text-decoration:none;font-size:14px;font-weight:700;white-space:nowrap}
+    main{flex:1;min-height:0}.chapter-panel{width:100%;height:100%}[hidden]{display:none!important}iframe{display:block;width:100%;height:100%;border:0;background:#f4f6f5}noscript{padding:12px 24px}.home-panel{height:100%;overflow:auto}.home-content{max-width:1080px;margin:auto;padding:48px 28px 30px}.eyebrow{margin:0 0 14px;font-size:12px;font-weight:700;letter-spacing:.13em;color:#0f0f70}.intro h2{margin:0;font-size:clamp(30px,4.5vw,46px);line-height:1.3;letter-spacing:-.045em}.intro p:last-child{margin:18px 0 0;color:#617682;line-height:1.8}.chapters{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:34px 0}.chapter-card{border:1px solid #d4e1e8;border-radius:18px;background:#fff;padding:28px}.chapter-number{margin:0 0 12px;color:#0f0f70;font-size:12px;font-weight:700;letter-spacing:.1em}.chapter-card h3{margin:0 0 10px;font-size:25px;letter-spacing:-.03em}.chapter-description{min-height:48px;margin:0 0 16px;color:#607480;font-size:14px;line-height:1.7}.chapter-meta{padding-top:16px;border-top:1px solid #e5ecf0;color:#647784;font-size:12px}.card-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}.card-actions a{min-height:42px;padding:11px 16px;text-decoration:none;border-radius:8px;font-size:14px;font-weight:700}.primary{background:#246e9b;color:#fff}.secondary{background:#edf4f8;color:#0f0f70}.shortcuts{padding:22px 26px;background:#eaf0f2;border-radius:14px}.shortcuts h3{font-size:15px;margin:0 0 15px}.shortcut-list{display:flex;gap:14px 30px;flex-wrap:wrap;font-size:13px;color:#526a78}.shortcut-list p{margin:0}kbd{display:inline-block;border:1px solid #c5d4dd;border-bottom-width:2px;border-radius:5px;padding:3px 6px;background:#fff;color:#273c4b;font:12px system-ui,sans-serif}.home-footer{font-size:12px;line-height:1.8;color:#6a7e89;margin:18px 0 0}
+    @media(max-width:700px){.chapter-bar{gap:8px;padding:10px 12px}h1{font-size:13px}.header-actions{width:100%;flex-wrap:nowrap;gap:6px}.tabs{flex:1}.tabs button{flex:1;padding:8px 6px;font-size:12px}.book-button{padding:11px 10px;font-size:12px}.home-content{padding:30px 16px 24px}.chapters{grid-template-columns:1fr;gap:14px;margin:26px 0}.chapter-card{padding:23px}.chapter-description{min-height:0}.shortcuts{padding:20px}.shortcut-list{display:grid;gap:12px}}
+    @media(max-width:450px){.header-actions{flex-wrap:wrap}.tabs{flex-basis:100%}.book-button{flex:1;text-align:center}}
+  </style>
+<link rel="stylesheet" href="/site-info.css"><script defer src="/site-info.js"></script><link rel="stylesheet" href="/campus.css"><link rel="stylesheet" href="/campus-effects.css"><script defer src="/campus-effects.js"></script><script defer src="/campus-navigation.js"></script><link rel="stylesheet" href="/campus-theme.css"><script defer src="/campus-curves.js"></script></head>
+<body class="campus-home">
+  <header class="chapter-bar">
+    <h1 aria-label="산업공학의 이해 빈칸노트"><a class="campus-logo-link" href="/" aria-label="메인 화면으로 이동"><span class="campus-logo-art"><img class="campus-brand-logo" src="/assets/snu-ie-logo.jpg" width="210" height="70" alt="서울대학교 산업공학과"><img class="campus-brand-logo campus-logo-dark" src="/assets/snu-ie-logo-dark.png" width="210" height="70" alt="" aria-hidden="true"></span></a><span class="campus-brand-caption">개인 학습 노트</span></h1>
+    <div class="header-actions">
+      <div class="tabs" role="tablist" aria-label="화면 선택">
+        <button type="button" id="tab-home" role="tab" aria-selected="true" aria-controls="panel-home" tabindex="0" data-chapter="home">메인</button>
+        <button type="button" id="tab-1-4" role="tab" aria-selected="false" aria-controls="panel-1-4" tabindex="-1" data-chapter="1-4">1~4장 통합</button>
+        <button type="button" id="tab-7" role="tab" aria-selected="false" aria-controls="panel-7" tabindex="-1" data-chapter="7">7장</button>
+        <button type="button" id="tab-8-9" role="tab" aria-selected="false" aria-controls="panel-8-9" tabindex="-1" data-chapter="8-9">8~9장 통합</button>
+        <button type="button" id="tab-10" role="tab" aria-selected="false" aria-controls="panel-10" tabindex="-1" data-chapter="10">10장</button>
+      </div>
+      <a class="book-button" id="open-quiz" href="/quiz.html?chapter=1-4">OX 퀴즈</a>
+      <a class="book-button" id="open-multi" href="/multi.html?chapter=1-4">다지선다</a>
+      <a class="book-button" id="open-textbook" href="/textbook.html?chapter=1-4&amp;page=23" target="_blank" rel="noopener">교재 열기 ↗</a><button type="button" class="theme-toggle" role="switch" aria-checked="false" aria-label="다크 모드" data-theme-toggle title="다크 모드로 전환"><span class="theme-label" aria-hidden="true">다크 모드</span><span class="theme-track" aria-hidden="true"><span class="theme-knob"></span></span></button>
+    </div>
+  </header>
+  <noscript><a href="/chapter-8-9.html">8~9장 통합 노트</a> · <a href="/chapter-1-4.html">1~4장 통합 노트</a> · <a href="/chapter-7.html">7장 노트</a> · <a href="/chapter-10.html">10장 노트</a></noscript>
+  <main>
+    <section id="panel-home" class="home-panel" role="tabpanel" aria-labelledby="tab-home">
+      <div class="home-content">
+        <div class="intro"><p class="eyebrow">INDUSTRIAL ENGINEERING · 406.434</p><h2>산업공학의 이해<br>빈칸노트</h2><p>키워드·OX·다지선다로 개념을 확인하고,<br>필요한 부분은 교재에서 바로 찾아보세요.</p></div>
+        <div class="chapters">
+          <article class="chapter-card foundation"><p class="chapter-number">CHAPTERS 01–04 · 통합</p><h3>1~4장 통합</h3><p class="chapter-description">산업공학의 기본부터 시스템 접근, 산업시스템 분석, 경영시스템 설계까지 한 노트에서 이어서 복습합니다.</p><p class="chapter-meta">103개 학습 항목 · 343개 키워드 · 교재 23–43 / 47–58 / 65–88 / 93–127쪽</p><div class="card-actions"><a class="primary" href="#1-4" aria-label="1~4장 키워드 학습">키워드 학습 →</a><a class="secondary" href="/quiz.html?chapter=1-4" aria-label="1~4장 OX 퀴즈">OX 퀴즈 · 480문항</a><a class="secondary" href="/multi.html?chapter=1-4" aria-label="1~4장 다지선다">다지선다 · 469문항</a><a class="secondary" href="/textbook.html?chapter=1-4&amp;page=23" target="_blank" rel="noopener" aria-label="1~4장 교재 열기">교재 열기 ↗</a></div></article>
+          <article class="chapter-card"><p class="chapter-number">CHAPTER 07</p><h3>경제성 분석</h3><p class="chapter-description">경제성의 기본 개념부터 현금흐름과 경제성 평가까지, 교재 순서대로 복습합니다.</p><p class="chapter-meta">70개 학습 항목 · 교재 195–241쪽</p><div class="card-actions"><a class="primary" href="#7" aria-label="7장 키워드 학습">키워드 학습 →</a><a class="secondary" href="/quiz.html?chapter=7" aria-label="7장 OX 퀴즈">OX 퀴즈 · 332문항</a><a class="secondary" href="/multi.html?chapter=7" aria-label="7장 다지선다">다지선다 · 260문항</a><a class="secondary" href="/textbook.html?chapter=7&amp;page=195" target="_blank" rel="noopener" aria-label="7장 교재 열기">교재 열기 ↗</a></div></article>
+          <article class="chapter-card"><p class="chapter-number">CHAPTERS 08–09 · 통합</p><h3>8~9장 통합</h3><p class="chapter-description">선형계획·심플렉스부터 확률분포·회귀분석·시뮬레이션까지, 수리·통계 분석을 이어서 복습합니다.</p><p class="chapter-meta">102개 학습 항목 · 235개 키워드 · 교재 249–262 / 267–295쪽</p><div class="card-actions"><a class="primary" href="#8-9" aria-label="8~9장 키워드 학습">키워드 학습 →</a><a class="secondary" href="/quiz.html?chapter=8-9" aria-label="8~9장 OX 퀴즈">OX 퀴즈 · 456문항</a><a class="secondary" href="/multi.html?chapter=8-9" aria-label="8~9장 다지선다">다지선다 · 374문항</a><a class="secondary" href="/textbook.html?chapter=8-9&amp;page=249" target="_blank" rel="noopener" aria-label="8~9장 교재 열기">교재 열기 ↗</a></div></article>
+          <article class="chapter-card"><p class="chapter-number">CHAPTER 10</p><h3>인적자원관리</h3><p class="chapter-description">인간심리학·생리학부터 작업관리와 인간중심설계까지, 교재 흐름에 따라 복습합니다.</p><p class="chapter-meta">67개 학습 항목 · 교재 303–353쪽</p><div class="card-actions"><a class="primary" href="#10" aria-label="10장 키워드 학습">키워드 학습 →</a><a class="secondary" href="/quiz.html?chapter=10" aria-label="10장 OX 퀴즈">OX 퀴즈 · 358문항</a><a class="secondary" href="/multi.html?chapter=10" aria-label="10장 다지선다">다지선다 · 311문항</a><a class="secondary" href="/textbook.html?chapter=10&amp;page=303" target="_blank" rel="noopener" aria-label="10장 교재 열기">교재 열기 ↗</a></div></article>
+        </div>
+        <section class="shortcuts" aria-label="학습 단축키"><h3>키보드로 이어서 학습하세요</h3><div class="shortcut-list"><p><kbd>Enter</kbd> 채점 후 다음 칸</p><p><kbd>Shift</kbd> + <kbd>Enter</kbd> 이전 칸</p><p><kbd>C</kbd> 정답 표시 / 숨김</p></div><p class="home-footer">C는 입력칸 밖에서 작동합니다. 문장 입력칸은 Ctrl/⌘ + Enter로 채점하고 이동합니다.</p></section>
+        <p class="home-footer">학습 기록은 이 브라우저에 자동 저장됩니다. 노트의 교재 쪽수를 누르면 해당 페이지가 열립니다.</p><div class="policy-footer"><nav aria-label="사이트 안내" data-policy-links><a href="/privacy.html" class="privacy-link">개인정보처리방침</a><a href="/terms.html">이용안내·약관</a><a href="/about.html">자료 출처·운영자</a><a href="/help.html">학습기록 관리·도움말</a></nav><p class="operator">운영 · 산업공학과 26학번 김예준 · <a href="mailto:sprakids@snu.ac.kr">sprakids@snu.ac.kr</a></p><p>개인 학습용 서비스 · 교재와 원자료의 권리는 각 권리자에게 있습니다.</p></div>
+      </div>
+    </section>
+    <section id="panel-1-4" class="chapter-panel" role="tabpanel" aria-labelledby="tab-1-4" hidden><iframe data-src="/chapter-1-4.html" title="1~4장 통합 빈칸 노트"></iframe></section>
+    <section id="panel-7" class="chapter-panel" role="tabpanel" aria-labelledby="tab-7" hidden><iframe data-src="/chapter-7.html" title="7장 경제성 분석 빈칸 노트"></iframe></section>
+    <section id="panel-8-9" class="chapter-panel" role="tabpanel" aria-labelledby="tab-8-9" hidden><iframe data-src="/chapter-8-9.html" title="8~9장 통합 빈칸 노트"></iframe></section>
+    <section id="panel-10" class="chapter-panel" role="tabpanel" aria-labelledby="tab-10" hidden><iframe data-src="/chapter-10.html" title="10장 인적자원관리 빈칸 노트"></iframe></section>
+  </main>
+  <script>
+    (()=>{
+      const tabs=[...document.querySelectorAll('[role="tab"]')];
+      function showChapter(chapter){
+        const current=['1-4','7','8-9','10'].includes(chapter)?chapter:'home';
+        for(const tab of tabs){
+          const selected=tab.dataset.chapter===current;
+          tab.setAttribute('aria-selected',String(selected));tab.tabIndex=selected?0:-1;
+          const panel=document.getElementById(tab.getAttribute('aria-controls'));panel.hidden=!selected;
+          const frame=panel.querySelector('iframe');if(selected&&frame&&!frame.getAttribute('src'))frame.src=frame.dataset.src;
+        }
+        const selected=current==='home'?'1-4':current;
+        document.getElementById('open-quiz').href='/quiz.html?chapter='+selected;
+        document.getElementById('open-multi').href='/multi.html?chapter='+selected;
+        document.getElementById('open-textbook').href='/textbook.html?chapter='+selected+'&page='+({'1-4':23,'7':195,'8-9':249,'10':303}[selected]);
+      }
+      let transition=0;
+      async function activate(tab,updateHash=true){
+        const ticket=++transition,frame=document.querySelector('.chapter-panel:not([hidden]) iframe');
+        if(frame?.contentWindow?.noteInputSafety)await frame.contentWindow.noteInputSafety.settle();
+        if(ticket!==transition)return;
+        showChapter(tab.dataset.chapter);
+        if(updateHash)history.replaceState(null,'',tab.dataset.chapter==='home'?location.pathname+location.search:'#'+tab.dataset.chapter);
+      }
+      tabs.forEach((tab,index)=>{
+        tab.addEventListener('click',()=>activate(tab));
+        tab.addEventListener('keydown',event=>{
+          let next;
+          if(event.key==='ArrowRight')next=tabs[(index+1)%tabs.length];
+          else if(event.key==='ArrowLeft')next=tabs[(index+tabs.length-1)%tabs.length];
+          else if(event.key==='Home')next=tabs[0];
+          else if(event.key==='End')next=tabs[tabs.length-1];
+          if(!next)return;event.preventDefault();activate(next);next.focus();
+        });
+      });
+      window.addEventListener('hashchange',()=>activate(tabs.find(tab=>tab.dataset.chapter===location.hash.slice(1))||tabs[0],false));
+      document.querySelectorAll('a[href^="/quiz.html"],a[href^="/multi.html"]').forEach(link=>link.addEventListener('click',async event=>{
+        if(event.defaultPrevented||event.button!==0||event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;
+        const controller=document.querySelector('.chapter-panel:not([hidden]) iframe')?.contentWindow?.noteInputSafety;
+        if(!controller)return;
+        event.preventDefault();await controller.settle();location.assign(link.href);
+      }));
+      document.addEventListener('keydown',event=>{
+        if(event.defaultPrevented||event.key.toLowerCase()!=='c'||event.repeat||event.ctrlKey||event.metaKey||event.altKey||event.isComposing||event.keyCode===229||event.target.closest?.('input,textarea,select,[contenteditable]:not([contenteditable="false"])'))return;
+        const controller=document.querySelector('.chapter-panel:not([hidden]) iframe')?.contentWindow?.noteInputSafety;
+        if(controller){event.preventDefault();controller.reveal();}
+      });
+      showChapter(location.hash.slice(1));
+    })();
+  </script>
+</body>
+</html>

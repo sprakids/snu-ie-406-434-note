@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ko">
+<head><script src="/campus-theme.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#19398a">
+  <title>OX 퀴즈 · 산업공학의 이해</title>
+  <link rel="stylesheet" href="/quiz.css?v=retry-20261023">
+  <script defer src="/quiz-core.js?v=retry-20261023"></script>
+  <script defer src="/study-retry.js?v=retry-20261023"></script>
+  <script defer src="/quiz.js?v=retry-20261023"></script>
+<link rel="stylesheet" href="/site-info.css"><script defer src="/site-info.js"></script><link rel="stylesheet" href="/campus.css"><link rel="stylesheet" href="/campus-effects.css"><script defer src="/campus-effects.js"></script><script defer src="/campus-navigation.js"></script><link rel="stylesheet" href="/campus-theme.css"><script defer src="/campus-curves.js"></script></head>
+<body class="campus-quiz">
+  <header class="site-header">
+    <a class="site-name campus-logo-link" href="/" aria-label="메인 화면으로 이동"><span class="campus-logo-art"><img class="campus-brand-logo" src="/assets/snu-ie-logo.jpg" width="210" height="70" alt="서울대학교 산업공학과"><img class="campus-brand-logo campus-logo-dark" src="/assets/snu-ie-logo-dark.png" width="210" height="70" alt="" aria-hidden="true"></span><span class="campus-brand-caption">개인 학습 노트</span></a>
+    <nav aria-label="학습 페이지"><a href="/">메인</a><a id="notes-link" href="/#7">키워드 학습</a><a id="multi-link" href="/multi.html?chapter=7">다지선다</a><a id="book-link" href="/textbook.html?chapter=7&amp;page=195" target="_blank" rel="noopener">교재 열기 ↗</a></nav>
+  <button type="button" class="theme-toggle" role="switch" aria-checked="false" aria-label="다크 모드" data-theme-toggle title="다크 모드로 전환"><span class="theme-label" aria-hidden="true">다크 모드</span><span class="theme-track" aria-hidden="true"><span class="theme-knob"></span></span></button></header>
+  <main>
+    <section class="intro" aria-labelledby="quiz-heading">
+      <div><p class="eyebrow">RECALL &amp; CHECK · OX QUIZ</p><h1 id="quiz-heading">OX 퀴즈</h1><p id="bank-info">교재에 따른 문항과 해설을 준비하고 있습니다.</p></div>
+      <nav class="chapter-tabs" aria-label="퀴즈 장 선택"><a id="chapter-1-4" href="/quiz.html?chapter=1-4">1~4장 통합</a><a id="chapter-7" href="/quiz.html?chapter=7">7장 · 경제성 분석</a><a id="chapter-8-9" href="/quiz.html?chapter=8-9">8~9장 통합</a><a id="chapter-10" href="/quiz.html?chapter=10">10장 · 인적자원관리</a></nav>
+    </section>
+    <section class="settings" aria-label="문제 출제 설정">
+      <label>학습 단원<select id="section" disabled><option value="all">장 전체</option></select></label>
+      <label>학습 범위<select id="scope" disabled><option value="all">전체 문제</option><option value="unanswered">아직 안 푼 문제</option><option value="wrong">오답만 다시 풀기</option></select></label>
+      <label>문제 순서<select id="order" disabled><option value="textbook">단원 순서대로</option><option value="random">장 안에서 무작위</option></select></label>
+      <button type="button" id="reshuffle" disabled>다시 섞기</button>
+      <button type="button" id="restart-range" disabled>전체 다시 풀기</button>
+      <p class="settings-note" id="order-note">단원 순서는 교재의 단원·학습 항목 순서를 따릅니다.</p>
+    </section>
+    <section class="progress-panel" aria-label="장 전체 학습 현황">
+      <div><span>이 장의 풀이 기록</span><strong id="progress-text">0 / 0</strong></div>
+      <progress id="progress" value="0" max="1" aria-label="이 장의 전체 풀이 진행률"></progress>
+      <div class="score-line"><span>정답 <b id="correct-count">0</b></span><span>오답 <b id="wrong-count">0</b></span><span>미풀이 <b id="unanswered-count">0</b></span></div>
+    </section>
+    <p id="loading" role="status">문제를 불러오는 중입니다…</p>
+    <button id="reload" type="button" hidden>문항 다시 불러오기</button>
+    <section id="empty" class="empty" hidden><h2 id="empty-title">해당하는 문제가 없습니다.</h2><p id="empty-text"></p><button id="show-all" type="button">이 장 전체 문제 보기</button></section>
+    <article id="question-card" class="question-card" hidden>
+      <div class="question-top"><span id="position-text"></span><div class="question-tools"><span class="kind" id="question-kind"></span><button id="retry-question" type="button" title="이 문제의 답안을 지우고 다시 풀기">이 문제 다시 풀기</button></div></div>
+      <p class="breadcrumb" id="question-path"></p>
+      <div class="topic-row"><p class="topic" id="question-topic"></p><div class="source-links" id="source-links" aria-label="문제의 교재 출처"></div></div>
+      <p class="prompt">다음 설명은 옳을까요?</p>
+      <h2 id="question-statement" tabindex="-1"></h2>
+      <div class="choices" role="group" aria-label="OX 답 선택"><button id="choose-o" type="button" data-choice="true"><strong>O</strong><span>맞아요</span></button><button id="choose-x" type="button" data-choice="false"><strong>X</strong><span>아니에요</span></button></div>
+      <section id="feedback" class="feedback" aria-live="polite" hidden><h3 id="feedback-title"></h3><p class="feedback-label">교재에 따른 해설</p><p id="explanation"></p><div class="keywords" id="keywords" aria-label="관련 키워드"></div><p class="application-note" id="application-note" hidden>이 문항의 수치는 교재 공식을 적용하기 위해 새로 만든 연습 조건입니다.</p></section>
+      <div class="question-nav"><button id="previous" type="button" disabled>← 이전 문제</button><form id="jump-form"><label for="position">문제 번호</label><input id="position" type="number" min="1" value="1" inputmode="numeric" required><button type="submit">이동</button></form><button id="next" type="button" disabled>다음 문제 →</button></div>
+    </article>
+    <section class="completion" id="completion" hidden><h2>이 목록을 모두 풀었습니다.</h2><p id="completion-text"></p><button id="review-wrong" type="button">이 장 오답 모아 보기</button></section>
+    <footer><p>O / X 또는 1 / 2로 답하고, ← / →로 문제를 이동할 수 있습니다. 답을 고른 뒤 Enter는 다음 문제입니다.</p><p id="save-status" role="status">OX 학습 기록은 이 브라우저에 키워드 학습과 별도로 저장됩니다.</p><p>제공된 교재와 키워드 노트를 바탕으로 만든 학습용 문항입니다. 각 문제의 쪽수로 교재 내용을 확인해 보세요.</p><div class="policy-footer"><nav aria-label="사이트 안내" data-policy-links><a href="/privacy.html" class="privacy-link">개인정보처리방침</a><a href="/terms.html">이용안내·약관</a><a href="/about.html">자료 출처·운영자</a><a href="/help.html">학습기록 관리·도움말</a></nav><p class="operator">운영 · 산업공학과 26학번 김예준 · <a href="mailto:sprakids@snu.ac.kr">sprakids@snu.ac.kr</a></p><p>개인 학습용 서비스 · 교재와 원자료의 권리는 각 권리자에게 있습니다.</p></div></footer>
+  </main>
+  <noscript>OX 퀴즈를 풀려면 자바스크립트를 켜 주세요. <a href="/">메인 화면으로 돌아가기</a></noscript>
+</body>
+</html>

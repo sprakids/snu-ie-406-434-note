@@ -1,0 +1,50 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><title>다지선다 브라우저 회귀 확인</title>
+<style>body{font:14px/1.7 system-ui}iframe{width:390px;height:844px;border:1px solid #bbb}pre{white-space:pre-wrap}</style>
+<h1>다지선다 브라우저 회귀 확인</h1><p>테스트 전용 localhost에서 실행합니다.</p><button id="run">검사 실행</button><pre id="report">대기</pre><iframe id="app" title="테스트 학습 화면"></iframe>
+<script>
+const frame=document.querySelector('#app'),report=document.querySelector('#report');
+const wait=ms=>new Promise(r=>setTimeout(r,ms));
+async function ready(){for(let i=0;i<100;i++){await wait(50);const d=frame.contentDocument;if(d?.querySelector('#loading')?.hidden&&d.querySelectorAll('.choice-checkbox').length===5){await d.fonts.ready;return d}}throw Error('앱 로딩 시간 초과')}
+document.querySelector('#run').onclick=async()=>{
+ const key='snu-ie-multi-chapter-7-v1', results=[];
+ const check=(name,value)=>{if(!value)throw Error(name);results.push('PASS '+name);report.textContent=results.join('\n')};
+ try{
+  if(location.hostname!=='127.0.0.1')throw Error('localhost 전용');
+  localStorage.removeItem(key);frame.src='/multi.html?chapter=7';let d=await ready();
+  const state=()=>JSON.parse(localStorage.getItem(key));
+  const core=()=>frame.contentWindow.IEMulti;
+  const input=()=>d.querySelector('#answer-input');
+  const boxes=()=>[...d.querySelectorAll('.choice-checkbox')];
+  const selected=()=>boxes().filter(x=>x.checked).map(x=>x.dataset.choice).join('');
+  const raw=value=>{input().value=value;input().dispatchEvent(new InputEvent('input',{bubbles:true,inputType:'insertText'}))};
+  boxes()[0].click();await wait(130);check('클릭 선택과 입력칸 동기화',selected()==='1'&&core().parse(input().value).value==='1');
+  d.querySelector('.statement-choice').click();await wait(130);check('카드 라벨을 눌러 한 번만 해제',selected()===''&&input().value==='');
+  boxes()[0].click();boxes()[1].click();boxes()[2].click();await wait(130);check('빠른 연속 선택 병합',selected()==='123'&&core().parse(input().value).value==='123');
+  boxes()[1].click();boxes()[1].click();await wait(130);check('빠른 해제 후 재선택',selected()==='123');
+  raw('ㄷ ㄱ');check('직접 입력 원문 보존과 체크 반영',input().value==='ㄷ ㄱ'&&selected()==='13');
+  boxes()[4].click();await wait(130);check('직접 입력과 클릭 혼용',selected()==='135'&&core().parse(input().value).value==='135');
+  raw('');d.querySelector('.statement').click();await wait(130);check('카드 여백도 클릭 선택',selected()==='1');
+  let opened=false;const a=d.querySelector('.statement .source-links a');a.addEventListener('click',e=>{e.preventDefault();opened=true});a.click();await wait(100);check('교재 링크가 선택을 바꾸지 않음',opened&&selected()==='1');
+  raw('123');const before=state(),qid=before.current,canonical=core().toCanonical('123',before.choiceOrders[qid]);
+  d.querySelector('#next').click();await wait(200);d.querySelector('#previous').click();await wait(200);
+  check('문제 재방문 시 내용 기준 선택 유지',state().current===qid&&core().toCanonical(selected(),state().choiceOrders[qid])===canonical);
+  frame.contentWindow.location.reload();d=await ready();check('새로고침 및 재배치 후 선택 유지',core().toCanonical(selected(),state().choiceOrders[qid])===canonical);
+  const labelSelect=d.querySelector('#labels');labelSelect.value='numbers';labelSelect.dispatchEvent(new Event('change',{bubbles:true}));await wait(160);raw('');boxes()[1].click();await wait(130);check('숫자 표기 선택',input().value==='2');
+  raw('잘못된 입력');boxes()[0].click();await wait(130);check('잘못 입력한 원문 보존 및 오류 안내',input().value==='잘못된 입력'&&!d.querySelector('#answer-error').hidden&&selected()==='');
+  raw('');const node=input();node.focus();node.dispatchEvent(new CompositionEvent('compositionstart',{bubbles:true}));node.value='ㄱ';node.dispatchEvent(new InputEvent('input',{bubbles:true,isComposing:true,inputType:'insertCompositionText'}));
+  boxes()[2].click();node.dispatchEvent(new CompositionEvent('compositionend',{bubbles:true,data:'ㄱ'}));await wait(200);check('조합 종료와 클릭 선택 병합',selected()==='13'&&input()===node&&core().parse(input().value).value==='13');
+  raw('');boxes()[0].click();d.querySelector('#next').click();await wait(200);check('즉시 이동해도 대기 중 선택 저장',core().toCanonical('1',state().choiceOrders[qid])===core().toCanonical(core().parse(state().drafts[qid]).value,state().choiceOrders[qid]));
+  d.querySelector('#previous').click();await wait(200);
+  const [data,ox]=await Promise.all([fetch('/multi-data-7.json').then(r=>r.json()),fetch('/quiz-data-7.json').then(r=>r.json())]);
+  const q=core().hydrate(data,ox).questions.find(q=>q.id===state().current),expected=core().correctAnswer(core().orderedQuestion(q,state().choiceOrders[q.id]));
+  raw('');for(const digit of expected)boxes()[Number(digit)-1].click();d.querySelector('#submit-answer').click();await wait(200);
+  check('클릭 선택 정답 채점 및 잠금',d.querySelector('#feedback-title').textContent.startsWith('정답입니다.')&&boxes().every(x=>x.disabled)&&d.querySelectorAll('.statement-detail').length===5);
+  d.querySelector('#retry-question').click();await wait(200);check('다시 풀기로 잠금 해제',boxes().every(x=>!x.disabled)&&selected()==='');
+  check('390px 화면 가로 넘침 없음',d.documentElement.scrollWidth<=390);
+  check('로고 이미지 로딩과 메인 링크',d.querySelector('.campus-logo-link')?.getAttribute('href')==='/'&&d.querySelector('.campus-brand-logo')?.naturalWidth===1280);
+  check('모든 선지에 유리 효과 적용', [...d.querySelectorAll('.statement')].every(x=>x.hasAttribute('data-glass')&&getComputedStyle(x).backdropFilter.includes('blur')));
+  raw('ㄴ');d.querySelector('.campus-logo-link').click();await wait(250);check('로고 클릭 메인 이동과 초안 보존',frame.contentWindow.location.pathname==='/'&&Object.values(state().drafts).includes('ㄴ'));
+  report.textContent=results.join('\n')+'\nALL PASS ('+results.length+')';
+ }catch(e){report.textContent=results.join('\n')+'\nFAIL '+e.message}
+};
+</script></html>
